@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Pool Me</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to Pool Me</h1>
+    <p>Your easy way to pool rides safely and affordably!</p>
+
+    <!-- Display error message -->
+    <p th:if="${param.error}" style="color: red;">Invalid credentials. Please try again.</p>
+
+    <!-- Login Form -->
+    <form th:action="@{/api/auth/login}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>New here?</p>
+    <a th:href="@{/register}">
+        <button class="register-btn">Register</button>
+    </a>
+</div>
+<script src="/css/auth.js"></script>
+</body>
+</html>

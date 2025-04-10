@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Pool Me</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+</head>
+<body>
+<header class="header">
+    <a href="#" class="logo">Pool Me</a>
+    <nav class="navbar">
+        <a href="/">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="section">
+    <div class="wrapper">
+        <span class="icon-close">
+            <i class='bx bx-x'></i>
+        </span>
+
+        <div class="form-box register">
+            <div class="logreg-title">
+                <h2>Register</h2>
+                <p>Please fill in the details to create an account</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form th:action="@{/api/auth/register}" method="post">
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxs-user'></i></span>
+                    <input type="text" name="username" required>
+                    <label>Full Name</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxs-envelope'></i></span>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox" required>I agree to the Terms and Conditions</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+            </form>
+
+            <div class="logreg-link">
+                <p>Already have an account? <a th:href="@{/}">Login</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/css/register.js"></script>
+</body>
+</html>

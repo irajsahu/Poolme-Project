@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoolMe - Smart Ride Sharing</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <!-- Leaflet Routing Machine CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <div class="logo">
+            <i class="fas fa-car-pool"></i>PoolMe
+        </div>
+        <p class="tagline">Smart ride sharing for everyone</p>
+    </header>
+
+    <main>
+        <h1>Find Your Perfect Ride Match</h1>
+
+        <section class="search-section">
+            <div class="input-container">
+                <div class="input-group">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" id="pickup" placeholder="Enter pickup location">
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-flag-checkered"></i>
+                    <input type="text" id="destination" placeholder="Enter destination">
+                </div>
+
+                <div class="btn-container">
+                    <button class="btn-primary" onclick="findRide()">
+                        <i class="fas fa-car-alt"></i> Find Passenger
+                    </button>
+                    <button class="btn-secondary" onclick="findPassenger()">
+                        <i class="fas fa-user-friends"></i> Find Ride
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="map-container">
+            <div class="map-overlay">
+                <i class="fas fa-info-circle"></i> View available routes and matches
+            </div>
+            <div id="map"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 PoolMe. All rights reserved.</p>
+    </footer>
+</div>
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+<!-- Leaflet Routing Machine -->
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<!-- Custom JavaScript -->
+<script th:src="@{/css/map.js}"></script>
+</body>
+</html>
